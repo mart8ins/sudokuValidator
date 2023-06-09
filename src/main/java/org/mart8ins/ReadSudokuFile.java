@@ -1,25 +1,30 @@
 package org.mart8ins;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.stream.Stream;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class ReadSudokuFile {
 
     private String fileLocation;
 
-    public ReadSudokuFile(String fileLoaction) {
-        this.fileLocation = fileLoaction;
+    public ReadSudokuFile(String fileLocation) {
+        this.fileLocation = fileLocation;
     }
 
-    public void readSudoku(){
-        InputStream inputStream = this.getClass().getResourceAsStream(fileLocation);
-        InputStreamReader streamReader = new InputStreamReader(inputStream);
-        BufferedReader bufferedReader = new BufferedReader(streamReader);
-        Stream<String> lines = bufferedReader.lines();
-        lines.forEach(System.out::println);
+    public void readSudoku() {
+        try {
+            URL url = this.getClass().getResource(fileLocation);
+            Path path = Path.of(url.toURI());
+            for(String line: Files.readAllLines(path)) {
+                System.out.println(line);
+            }
+        } catch (URISyntaxException e) {
+            System.out.println("Wrong URI syntax");
+        } catch (IOException e) {
+            System.out.println("Problems reading file");
+        }
     }
-
-
 }
