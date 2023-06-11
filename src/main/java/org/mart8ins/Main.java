@@ -5,10 +5,12 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        ReadSudokuFile sudokuToValidate = new ReadSudokuFile("/org.mart8ins/invalid_due_to_column_dupe.sudoku");
-        String sudoku = sudokuToValidate.readSudoku();
-        String[][] sudokuArray = FormatSudoku.generateTwoDimensionalArray(sudoku);
-        System.out.println(Arrays.toString(sudokuArray[0]));
+        SudokuReader sudokuReader = new SudokuReader("/org.mart8ins/valid_complete.sudoku");
+        String sudoku = sudokuReader.readSudoku();
 
+        String[][] sudokuArray = FormatSudoku.generateTwoDimensionalArray(sudoku);
+
+        ValidateSudoku validateSudoku = new ValidateSudoku();
+        validateSudoku.validateRows(sudokuArray);
     }
 }

@@ -6,11 +6,11 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class ReadSudokuFile {
+public class SudokuReader {
 
     private String fileLocation;
 
-    public ReadSudokuFile(String fileLocation) {
+    public SudokuReader(String fileLocation) {
         this.fileLocation = fileLocation;
     }
 
