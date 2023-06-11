@@ -10,12 +10,14 @@ public class ValidateSudoku {
         List<String> numberToCheck = new ArrayList<>();
         for(String[] arr: sudokuArray) {
             for(String n : arr) {
-                int index = numberToCheck.indexOf(n);
-                if(index != -1) {
-                    rowsAreValid = false;
-                    break;
+                if(!n.equals("0")) {
+                    int index = numberToCheck.indexOf(n);
+                    if(index != -1) {
+                        rowsAreValid = false;
+                        break;
+                    }
+                    numberToCheck.add(n);
                 }
-                numberToCheck.add(n);
             }
             numberToCheck.clear();
         }

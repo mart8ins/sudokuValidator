@@ -8,7 +8,7 @@ class ValidateSudokuTest {
     ValidateSudoku validateSudoku = new ValidateSudoku();
 
     @Test
-    @DisplayName("Valid full sudoku, check for valid rows")
+    @DisplayName("Valid full sudoku, check rows")
     void validateRowsFullValid() {
         String[][] toTest = {
                 {"8", "5", "9", "6", "1", "2", "4", "3", "7"},
@@ -26,7 +26,7 @@ class ValidateSudokuTest {
     }
 
     @Test
-    @DisplayName("Valid partly full sudoku, check for valid rows")
+    @DisplayName("Valid partly full sudoku, check rows")
     void validateRowsPartlyFullValid() {
         String[][] toTest = {
                 {"8", "5", "9", "6", "1", "2", "4", "3", "7"},
@@ -44,10 +44,10 @@ class ValidateSudokuTest {
     }
 
     @Test
-    @DisplayName("Invalid full sudoku, check for valid rows")
+    @DisplayName("Invalid full sudoku, check rows")
     void validateRowsFullInValid() {
         String[][] toTest = {
-                {"8", "8", "9", "6", "1", "2", "4", "3", "7"},
+                {"8", "5", "9", "6", "1", "2", "4", "3", "7"},
                 {"7", "2", "2", "8", "5", "4", "1", "6", "9"},
                 {"1", "6", "4", "3", "7", "9", "5", "2", "8"},
                 {"9", "8", "6", "1", "4", "7", "3", "5", "2"},
