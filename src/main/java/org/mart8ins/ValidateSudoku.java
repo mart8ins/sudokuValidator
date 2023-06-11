@@ -24,8 +24,14 @@ public class ValidateSudoku {
         return rowsAreValid;
     }
 
-    public boolean validateCol(){
-        return false;
+    public boolean validateCol(String[][] sudokuArray){
+        String[][] colToRow = new String[9][9];
+        for(int i =0; i < sudokuArray.length; i++) {
+            for(int j = 0; j < sudokuArray[i].length; j++) {
+                colToRow[j][i] = sudokuArray[i][j];
+            }
+        }
+        return validateRows(colToRow);
     }
 
     public boolean validateBlock(){

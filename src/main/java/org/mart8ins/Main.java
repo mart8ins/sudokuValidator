@@ -11,6 +11,7 @@ public class Main {
         String[][] sudokuArray = FormatSudoku.generateTwoDimensionalArray(sudoku);
 
         ValidateSudoku validateSudoku = new ValidateSudoku();
-        validateSudoku.validateRows(sudokuArray);
+//        validateSudoku.validateRows(sudokuArray);
+        validateSudoku.validateCol(sudokuArray);
     }
 }
