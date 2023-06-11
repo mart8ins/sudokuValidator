@@ -1,7 +1,5 @@
 package org.mart8ins;
 
-import java.util.Arrays;
-
 public class FormatSudoku {
     public static String[][] generateTwoDimensionalArray(String sudoku){
         String[] cleanedSudoku = sudoku.replaceAll("[-+\\|\s]", "").split("\n+");
